@@ -83,8 +83,8 @@ app.controller('myCtrl', function($scope, dataService) {
                 },
                 scales: {
                     xAxes: [{
-                        barThickness: 40,
-                        maxBarThickness: 50
+                        barThickness: 50,
+                        maxBarThickness: 60
                     }]
                 },
                 tooltips: {
