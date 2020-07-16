@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body ng-app="myApp" >
+    <div class="header">
+        <span class="menu">Menu</span>
+        <div class="username">
+            <md-icon aria-label="Person" class="material-icons icon-user">person</md-icon>
+            <span></md-icon>Usuário</span>
+        </div>
+        <span class="title">Número de mortes por doenças</span>
+    </div>
+    <div ng-controller="myCtrl">
+        <h3 style="text-align: center;">Filtros</h3>
+        <div class="filters">
+            <span>País
+            <select id="countrySelect" 
+                    ng-options="country for country in countries" 
+                    ng-model="selectedCountry" 
+                    ng-change="addFilter('country', selectedCountry)">{{country}}</select></span>
+    
+            <span>Causa
+            <select id="causeSelect" 
+                    ng-options="cause for cause in causes" 
+                    ng-model="selectedCause" 
+                    ng-change="addFilter('cause', selectedCause)">{{cause}}</select></span>
+    
+            <span>Gênero
+            <select id="genderSelect" 
+                    ng-options="gender for gender in genders" 
+                    ng-model="selectedGender" 
+                    ng-change="addFilter('gender', selectedGender)">{{gender}}</select></span>
+        </div>
+    </div>
+    <div class="chart">
+        <canvas width="1000" height="300" id="myChart"></canvas>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
